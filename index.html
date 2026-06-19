@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Демонстрационный бот подготовки кандидатов к обучению" />
+    <title>Старт в Яндексе — демо</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">Я</span>
+          <div>
+            <strong>Старт в Яндексе</strong>
+            <span>пилотный стенд</span>
+          </div>
+        </div>
+        <label class="candidate-picker">
+          <span>Тестовый кандидат</span>
+          <select id="candidateSelect"></select>
+        </label>
+      </header>
+
+      <main class="layout">
+        <aside class="journey" aria-label="Этапы подготовки">
+          <div class="journey-heading">
+            <p class="eyebrow">Твой маршрут</p>
+            <h1>До обучения<br />осталось немного</h1>
+          </div>
+          <ol id="stageList" class="stage-list"></ol>
+          <div class="journey-foot">
+            <span id="progressText">0 из 5 этапов</span>
+            <div class="progress-track"><span id="progressBar"></span></div>
+          </div>
+        </aside>
+
+        <section class="chat-panel" aria-label="Диалог с ботом">
+          <div class="chat-head">
+            <div>
+              <p class="eyebrow">Личный помощник</p>
+              <h2 id="candidateName">Кандидат</h2>
+            </div>
+            <span id="accessStatus" class="status-pill">Доступ активен</span>
+          </div>
+
+          <div id="chat" class="chat" aria-live="polite"></div>
+
+          <div id="composer" class="composer">
+            <button class="secondary-action" data-global="help">Задать вопрос</button>
+            <button class="secondary-action" data-global="transfer">Перенести обучение</button>
+            <button class="danger-link" data-global="refuse">Отказаться</button>
+          </div>
+        </section>
+
+        <aside class="side-panel">
+          <section class="event-block">
+            <p class="eyebrow">Ближайшее событие</p>
+            <div id="eventDate" class="event-date"></div>
+            <h3 id="eventTitle"></h3>
+            <p id="eventMeta" class="muted"></p>
+            <a id="eventLink" class="primary-link" href="#" target="_blank" rel="noreferrer">Открыть Zoom</a>
+          </section>
+
+          <section class="candidate-card">
+            <p class="eyebrow">Из тестовой таблицы</p>
+            <dl id="candidateFacts"></dl>
+          </section>
+
+          <section class="alerts-block">
+            <div class="section-row">
+              <p class="eyebrow">Чат адаптации</p>
+              <span id="alertCount" class="count">0</span>
+            </div>
+            <div id="alerts" class="alerts"></div>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <dialog id="modal">
+      <form method="dialog" class="modal-card">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" id="modalEyebrow">Действие</p>
+            <h2 id="modalTitle">Заголовок</h2>
+          </div>
+          <button class="modal-close" value="cancel" aria-label="Закрыть">Закрыть</button>
+        </div>
+        <div id="modalBody"></div>
+      </form>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
